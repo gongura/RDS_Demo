@@ -1,0 +1,8 @@
+spring.datasource.url=jdbc:mysql://localhost:3306/db
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+#com.mysql.jdbc.Driver
+spring.datasource.username=ramesh
+spring.datasource.password=password
+
+spring.jpa.hibernate.ddl-auto=create
+spring.jpa.show-sql=true
