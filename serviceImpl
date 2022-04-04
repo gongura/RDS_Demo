@@ -1,0 +1,41 @@
+@Service
+public class EmpServiceImpl implements EmpService {
+	@Autowired
+	private EmpRepository empRepository;
+
+	public Employee saveEmployee(Employee employee) {
+	
+		return empRepository.save(employee);
+	}
+
+	public List<Employee> findEmployees() {
+		return empRepository.findAll();
+	}
+
+
+	public Employee fetchRecordById(Long empId) {
+		return empRepository.findById(empId).get();
+	}
+
+	public void deleteEmployee(Long empId) {
+		empRepository.deleteById(empId);
+	}
+
+	@Override
+	public Employee updateEmployee(Long empId, Employee employee) {
+		Employee emp = empRepository.findById(empId).get();
+		if(Objects.nonNull(employee.getEmpName())&&!"".equalsIgnoreCase(employee.getEmpName())) {
+			emp.setEmpName(employee.getEmpName());
+		}
+		if(Objects.nonNull(employee.getPassword())&&!"".equalsIgnoreCase(employee.getPassword())) {
+			emp.setPassword(employee.getPassword());
+		}
+		return empRepository.save(emp);
+	}
+
+	@Override
+	public Employee getEmployeeByName(String empName) {
+		return empRepository.findByEmpName(empName);
+	}
+
+}

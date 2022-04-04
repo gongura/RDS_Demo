@@ -1,0 +1,6 @@
+@Repository
+public interface EmpRepository extends JpaRepository<Employee, Long> {
+   public Employee findByEmpName(String empName);
+   public Employee findByEmpNameIgnoreCase(String empName);
+}
+

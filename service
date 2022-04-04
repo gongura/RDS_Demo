@@ -1,0 +1,16 @@
+public interface EmpService {
+
+	public Employee saveEmployee(Employee employee);
+
+	public List<Employee> findEmployees();
+
+	public Employee fetchRecordById(Long empId);
+
+	public void deleteEmployee(Long empId);
+
+	public Employee updateEmployee(Long empId, Employee employee);
+
+	public Employee getEmployeeByName(String empName);
+
+}
+

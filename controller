@@ -1,0 +1,32 @@
+@RestController
+@RequestMapping("/")
+public class EmpController {
+    @Autowired
+	private EmpService empService;
+	
+@PostMapping("/employee")
+public Employee saveEmployee(@RequestBody Employee employee) {
+	return empService.saveEmployee(employee);
+}
+@GetMapping("/employees")
+public List<Employee> findEmployees(){
+	return empService.findEmployees();
+}
+@GetMapping("/employee/{id}")
+public Employee fetchRecordById(@PathVariable("id") Long empId) {
+	return empService.fetchRecordById(empId);
+}
+@DeleteMapping("/employee/{id}")
+public String deleteEmployee(@PathVariable("id") Long empId) {
+	empService.deleteEmployee(empId);
+	return "employee deleted successfully";
+}
+@PutMapping("/employee/{id}")
+public Employee updateEmployee(@PathVariable("id") Long empId,@RequestBody Employee employee) {
+	return empService.updateEmployee(empId, employee);
+}
+@GetMapping("/employee/name/{name}")
+public Employee getEmployeeByName(@PathVariable("name") String empName) {
+	return empService.getEmployeeByName(empName);
+}
+}
